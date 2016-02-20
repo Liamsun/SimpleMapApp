@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D21739CB1C7839DE00439042 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21739CA1C7839DE00439042 /* AppDelegate.swift */; };
-		D21739CD1C7839DE00439042 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21739CC1C7839DE00439042 /* ViewController.swift */; };
-		D21739D01C7839DE00439042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21739CE1C7839DE00439042 /* Main.storyboard */; };
 		D21739D21C7839DE00439042 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D21739D11C7839DE00439042 /* Assets.xcassets */; };
 		D21739D51C7839DE00439042 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D21739D31C7839DE00439042 /* LaunchScreen.storyboard */; };
 		D21739E01C7839DE00439042 /* Travel_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21739DF1C7839DE00439042 /* Travel_MapTests.swift */; };
+		D2173A1B1C783AD500439042 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A141C783AD500439042 /* AppDelegate.swift */; };
+		D2173A1C1C783AD500439042 /* CustomPresentationAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A151C783AD500439042 /* CustomPresentationAnimationController.swift */; };
+		D2173A1D1C783AD500439042 /* CustomPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A161C783AD500439042 /* CustomPresentationController.swift */; };
+		D2173A1E1C783AD500439042 /* EditWaypointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A171C783AD500439042 /* EditWaypointViewController.swift */; };
+		D2173A1F1C783AD500439042 /* GPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A181C783AD500439042 /* GPX.swift */; };
+		D2173A201C783AD500439042 /* GPXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A191C783AD500439042 /* GPXViewController.swift */; };
+		D2173A211C783AD500439042 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A1A1C783AD500439042 /* ImageViewController.swift */; };
+		D2173A231C783AED00439042 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2173A221C783AED00439042 /* Info.plist */; };
+		D2173A251C783AF500439042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2173A241C783AF500439042 /* Main.storyboard */; };
+		D2173A2E1C783AFC00439042 /* MapDetailAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A261C783AFC00439042 /* MapDetailAnimatedTransitioning.swift */; };
+		D2173A2F1C783AFC00439042 /* MapDetailPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A271C783AFC00439042 /* MapDetailPresentationController.swift */; };
+		D2173A301C783AFC00439042 /* MapDetailTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A281C783AFC00439042 /* MapDetailTransitioningDelegate.swift */; };
+		D2173A311C783AFC00439042 /* MapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A291C783AFC00439042 /* MapDetailViewController.swift */; };
+		D2173A321C783AFC00439042 /* MapTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A2A1C783AFC00439042 /* MapTypeViewController.swift */; };
+		D2173A331C783AFC00439042 /* MKGPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A2B1C783AFC00439042 /* MKGPX.swift */; };
+		D2173A341C783AFC00439042 /* SimpleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A2C1C783AFC00439042 /* SimpleMapViewController.swift */; };
+		D2173A351C783AFC00439042 /* WaypointImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A2D1C783AFC00439042 /* WaypointImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,15 +41,28 @@
 
 /* Begin PBXFileReference section */
 		D21739C71C7839DE00439042 /* Travel Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D21739CA1C7839DE00439042 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D21739CC1C7839DE00439042 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D21739CF1C7839DE00439042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D21739D11C7839DE00439042 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D21739D41C7839DE00439042 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D21739D61C7839DE00439042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D21739DB1C7839DE00439042 /* Travel MapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Travel MapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D21739DF1C7839DE00439042 /* Travel_MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel_MapTests.swift; sourceTree = "<group>"; };
 		D21739E11C7839DE00439042 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2173A141C783AD500439042 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D2173A151C783AD500439042 /* CustomPresentationAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationAnimationController.swift; sourceTree = "<group>"; };
+		D2173A161C783AD500439042 /* CustomPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
+		D2173A171C783AD500439042 /* EditWaypointViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditWaypointViewController.swift; sourceTree = "<group>"; };
+		D2173A181C783AD500439042 /* GPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPX.swift; sourceTree = "<group>"; };
+		D2173A191C783AD500439042 /* GPXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPXViewController.swift; sourceTree = "<group>"; };
+		D2173A1A1C783AD500439042 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		D2173A221C783AED00439042 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2173A241C783AF500439042 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D2173A261C783AFC00439042 /* MapDetailAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDetailAnimatedTransitioning.swift; sourceTree = "<group>"; };
+		D2173A271C783AFC00439042 /* MapDetailPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDetailPresentationController.swift; sourceTree = "<group>"; };
+		D2173A281C783AFC00439042 /* MapDetailTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDetailTransitioningDelegate.swift; sourceTree = "<group>"; };
+		D2173A291C783AFC00439042 /* MapDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDetailViewController.swift; sourceTree = "<group>"; };
+		D2173A2A1C783AFC00439042 /* MapTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTypeViewController.swift; sourceTree = "<group>"; };
+		D2173A2B1C783AFC00439042 /* MKGPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGPX.swift; sourceTree = "<group>"; };
+		D2173A2C1C783AFC00439042 /* SimpleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMapViewController.swift; sourceTree = "<group>"; };
+		D2173A2D1C783AFC00439042 /* WaypointImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +104,25 @@
 		D21739C91C7839DE00439042 /* Travel Map */ = {
 			isa = PBXGroup;
 			children = (
-				D21739CA1C7839DE00439042 /* AppDelegate.swift */,
-				D21739CC1C7839DE00439042 /* ViewController.swift */,
-				D21739CE1C7839DE00439042 /* Main.storyboard */,
+				D2173A141C783AD500439042 /* AppDelegate.swift */,
+				D2173A151C783AD500439042 /* CustomPresentationAnimationController.swift */,
+				D2173A161C783AD500439042 /* CustomPresentationController.swift */,
+				D2173A171C783AD500439042 /* EditWaypointViewController.swift */,
+				D2173A181C783AD500439042 /* GPX.swift */,
+				D2173A191C783AD500439042 /* GPXViewController.swift */,
+				D2173A1A1C783AD500439042 /* ImageViewController.swift */,
+				D2173A221C783AED00439042 /* Info.plist */,
+				D2173A241C783AF500439042 /* Main.storyboard */,
+				D2173A261C783AFC00439042 /* MapDetailAnimatedTransitioning.swift */,
+				D2173A271C783AFC00439042 /* MapDetailPresentationController.swift */,
+				D2173A281C783AFC00439042 /* MapDetailTransitioningDelegate.swift */,
+				D2173A291C783AFC00439042 /* MapDetailViewController.swift */,
+				D2173A2A1C783AFC00439042 /* MapTypeViewController.swift */,
+				D2173A2B1C783AFC00439042 /* MKGPX.swift */,
+				D2173A2C1C783AFC00439042 /* SimpleMapViewController.swift */,
+				D2173A2D1C783AFC00439042 /* WaypointImageViewController.swift */,
 				D21739D11C7839DE00439042 /* Assets.xcassets */,
 				D21739D31C7839DE00439042 /* LaunchScreen.storyboard */,
-				D21739D61C7839DE00439042 /* Info.plist */,
 			);
 			path = "Travel Map";
 			sourceTree = "<group>";
@@ -181,7 +221,8 @@
 			files = (
 				D21739D51C7839DE00439042 /* LaunchScreen.storyboard in Resources */,
 				D21739D21C7839DE00439042 /* Assets.xcassets in Resources */,
-				D21739D01C7839DE00439042 /* Main.storyboard in Resources */,
+				D2173A231C783AED00439042 /* Info.plist in Resources */,
+				D2173A251C783AF500439042 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,8 +240,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D21739CD1C7839DE00439042 /* ViewController.swift in Sources */,
-				D21739CB1C7839DE00439042 /* AppDelegate.swift in Sources */,
+				D2173A1B1C783AD500439042 /* AppDelegate.swift in Sources */,
+				D2173A321C783AFC00439042 /* MapTypeViewController.swift in Sources */,
+				D2173A351C783AFC00439042 /* WaypointImageViewController.swift in Sources */,
+				D2173A1C1C783AD500439042 /* CustomPresentationAnimationController.swift in Sources */,
+				D2173A341C783AFC00439042 /* SimpleMapViewController.swift in Sources */,
+				D2173A201C783AD500439042 /* GPXViewController.swift in Sources */,
+				D2173A2F1C783AFC00439042 /* MapDetailPresentationController.swift in Sources */,
+				D2173A331C783AFC00439042 /* MKGPX.swift in Sources */,
+				D2173A211C783AD500439042 /* ImageViewController.swift in Sources */,
+				D2173A2E1C783AFC00439042 /* MapDetailAnimatedTransitioning.swift in Sources */,
+				D2173A1E1C783AD500439042 /* EditWaypointViewController.swift in Sources */,
+				D2173A311C783AFC00439042 /* MapDetailViewController.swift in Sources */,
+				D2173A1D1C783AD500439042 /* CustomPresentationController.swift in Sources */,
+				D2173A301C783AFC00439042 /* MapDetailTransitioningDelegate.swift in Sources */,
+				D2173A1F1C783AD500439042 /* GPX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,14 +277,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D21739CE1C7839DE00439042 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D21739CF1C7839DE00439042 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D21739D31C7839DE00439042 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -329,10 +375,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Travel Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Liam.Travel-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -340,6 +388,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Travel Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Liam.Travel-Map";
