@@ -198,10 +198,12 @@
 					D21739C61C7839DE00439042 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = ZU666WZTFP;
+						LastSwiftMigration = 0810;
 					};
 					D21739DA1C7839DE00439042 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = ZU666WZTFP;
+						LastSwiftMigration = 0810;
 						TestTargetID = D21739C61C7839DE00439042;
 					};
 				};
@@ -393,6 +395,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Liam.Travel-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -405,6 +408,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Liam.Travel-Map";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -416,6 +420,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Liam.Travel-MapTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Travel Map.app/Travel Map";
 			};
 			name = Debug;
@@ -428,6 +433,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Liam.Travel-MapTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Travel Map.app/Travel Map";
 			};
 			name = Release;

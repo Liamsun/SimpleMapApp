@@ -10,7 +10,7 @@ import UIKit
 
 class ImageViewController: UIViewController, UIScrollViewDelegate
 {
-    var imageURL: NSURL? {
+    var imageURL: URL? {
         didSet {
             image = nil
             if view.window != nil {
@@ -21,14 +21,14 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
-    private func fetchImage()
+    fileprivate func fetchImage()
     {
         if let url = imageURL {
             spinner?.startAnimating()
-            let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
-            dispatch_async(dispatch_get_global_queue(qos, 0)) { () -> Void in
-                let imageData = NSData(contentsOfURL: url)
-                dispatch_async(dispatch_get_main_queue()) {
+            let qos = Int(DispatchQoS.QoSClass.userInitiated.rawValue)
+            DispatchQueue.global(priority: qos).async { () -> Void in
+                let imageData = try? Data(contentsOf: url)
+                DispatchQueue.main.async {
                     if url == self.imageURL {
                         if imageData != nil {
                             self.image = UIImage(data: imageData!)
@@ -50,13 +50,13 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
         }
     }
     
-    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
     }
     
-    private var imageView = UIImageView()
+    fileprivate var imageView = UIImageView()
     
-    private var image: UIImage? {
+    fileprivate var image: UIImage? {
         get { return imageView.image }
         set {
             imageView.image = newValue
@@ -71,7 +71,7 @@ class ImageViewController: UIViewController, UIScrollViewDelegate
         scrollView.addSubview(imageView)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if image == nil {
             fetchImage()

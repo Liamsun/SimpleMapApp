@@ -17,44 +17,44 @@ class MapTypeViewController: UIViewController, UIViewControllerTransitioningDele
         self.commonInit()
     }
     
-    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!)  {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: Bundle!)  {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         self.commonInit()
     }
     
     func commonInit() {
-        self.modalPresentationStyle = .Custom
+        self.modalPresentationStyle = .custom
         self.transitioningDelegate = self
     }
     
     
     @IBOutlet weak var mapTypeBeforeChanged: UISegmentedControl!
     
-    @IBAction func configureMap(sender: UISegmentedControl) {
+    @IBAction func configureMap(_ sender: UISegmentedControl) {
         let selectedIndex = sender.selectedSegmentIndex
         switch selectedIndex {
-        case 0: mapView.mapType = .Standard
-        case 1: mapView.mapType = .Satellite
-        case 2: mapView.mapType = .Hybrid
+        case 0: mapView.mapType = .standard
+        case 1: mapView.mapType = .satellite
+        case 2: mapView.mapType = .hybrid
         default: return
         }
-        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        presentingViewController?.dismiss(animated: true, completion: nil)
         sender.selectedSegmentIndex = -1
     }
     
     // ---- UIViewControllerTransitioningDelegate methods
     
-    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         
         if presented == self {
-            return CustomPresentationController(presentedViewController: presented, presentingViewController: presenting)
+            return CustomPresentationController(presentedViewController: presented, presenting: presenting)
         }
         
         return nil
     }
     
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         if presented == self {
             return CustomPresentationAnimationController(isPresenting: true)
@@ -64,7 +64,7 @@ class MapTypeViewController: UIViewController, UIViewControllerTransitioningDele
         }
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         if dismissed == self {
             return CustomPresentationAnimationController(isPresenting: false)
@@ -80,9 +80,9 @@ class MapTypeViewController: UIViewController, UIViewControllerTransitioningDele
         let currentMapType = mapView.mapType
         var selectedIndex = 0
         switch currentMapType {
-        case MKMapType.Standard: selectedIndex = 0
-        case MKMapType.Satellite: selectedIndex = 1
-        case MKMapType.Hybrid: selectedIndex = 2
+        case MKMapType.standard: selectedIndex = 0
+        case MKMapType.satellite: selectedIndex = 1
+        case MKMapType.hybrid: selectedIndex = 2
         default: selectedIndex = -1
         }
         

@@ -15,15 +15,15 @@ class MapDetailViewController: UIViewController, UITableViewDataSource, UITableV
     // MARK: segment
     @IBOutlet weak var mapType: UISegmentedControl!
     
-    @IBAction func configureMap(sender: UISegmentedControl) {
+    @IBAction func configureMap(_ sender: UISegmentedControl) {
         let selectedIndex = sender.selectedSegmentIndex
         switch selectedIndex {
-        case 0: mapView.mapType = .Standard
-        case 1: mapView.mapType = .HybridFlyover
-        case 2: mapView.mapType = .SatelliteFlyover
+        case 0: mapView.mapType = .standard
+        case 1: mapView.mapType = .hybridFlyover
+        case 2: mapView.mapType = .satelliteFlyover
         default: break
         }
-        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     // MAKR: table view
@@ -31,25 +31,25 @@ class MapDetailViewController: UIViewController, UITableViewDataSource, UITableV
 
     var detailsForMapType = [String]()
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return detailsForMapType.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "MapDetailTableViewCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MapDetailTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MapDetailTableViewCell
         cell.mapDetails.text = detailsForMapType[indexPath.row]
         // set up cell
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch indexPath.row {
         case 0 :
@@ -62,7 +62,7 @@ class MapDetailViewController: UIViewController, UITableViewDataSource, UITableV
         default: break
         }
         
-        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -74,18 +74,18 @@ class MapDetailViewController: UIViewController, UITableViewDataSource, UITableV
         let currentMapType = mapView.mapType
         var selectedIndex = 0
         switch currentMapType {
-        case MKMapType.Standard:
+        case MKMapType.standard:
             selectedIndex = 0
             setMapDetails()
             
             
-        case MKMapType.HybridFlyover:
+        case MKMapType.hybridFlyover:
             selectedIndex = 1
             setMapDetails()
             
             // do something later
             
-        case MKMapType.SatelliteFlyover:
+        case MKMapType.satelliteFlyover:
             selectedIndex = 2
             //setMapDetails()
             

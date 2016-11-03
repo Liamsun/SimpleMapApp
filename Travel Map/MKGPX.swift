@@ -18,8 +18,8 @@ class EditableWaypoint: GPX.Waypoint
         }
     }
     
-    override var thumbnailURL: NSURL? { return imageURL }
-    override var imageURL: NSURL? { return links.first?.url }
+    override var thumbnailURL: URL? { return imageURL }
+    override var imageURL: URL? { return links.first?.url as URL? }
     
 }
 
@@ -38,13 +38,13 @@ extension GPX.Waypoint: MKAnnotation
         return info
     }
     
-    var thumbnailURL: NSURL? { return getImageURLofType("thumbnail") }
-    var imageURL: NSURL? { return getImageURLofType("large") }
+    var thumbnailURL: URL? { return getImageURLofType("thumbnail") }
+    var imageURL: URL? { return getImageURLofType("large") }
     
-    private func getImageURLofType(type: String) -> NSURL? {
+    fileprivate func getImageURLofType(_ type: String) -> URL? {
         for link in links {
             if link.type == type {
-                return link.url
+                return link.url as URL?
             }
         }
         return nil

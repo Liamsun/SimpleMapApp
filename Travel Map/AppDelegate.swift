@@ -19,12 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
         
         // post a notification when a GPX file arrives
-        let center = NSNotificationCenter.defaultCenter()
-        let notification = NSNotification(name: GPXURL.Notification, object: self, userInfo: [GPXURL.Key:url])
-        center.postNotification(notification)
+        let center = NotificationCenter.default
+        let notification = Notification(name: Notification.Name(rawValue: GPXURL.Notification), object: self, userInfo: [GPXURL.Key:url])
+        center.post(notification)
         return true
     }
 

@@ -20,16 +20,16 @@ class WaypointImageViewController: ImageViewController {
     
     var smvc: SimpleMapViewController?
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Embed Segue" {
-            smvc = segue.destinationViewController as? SimpleMapViewController
+            smvc = segue.destination as? SimpleMapViewController
             updateEmbeddedMap()
         }
     }
     
     func updateEmbeddedMap() {
         if let mapView = smvc?.mapView {
-            mapView.mapType = .Hybrid
+            mapView.mapType = .hybrid
             mapView.removeAnnotations(mapView.annotations)
             mapView.addAnnotation(waypoint!)
             mapView.showAnnotations(mapView.annotations, animated: true)

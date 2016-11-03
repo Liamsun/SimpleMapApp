@@ -10,7 +10,7 @@
 
 import Foundation
 
-class GPX: NSObject, NSXMLParserDelegate
+class GPX: NSObject, XMLParserDelegate
 {
     // MARK: - Public API
 
@@ -20,7 +20,7 @@ class GPX: NSObject, NSXMLParserDelegate
     
     typealias GPXCompletionHandler = (GPX?) -> Void
     
-    class func parse(url: NSURL, completionHandler: GPXCompletionHandler) {
+    class func parse(_ url: URL, completionHandler: @escaping GPXCompletionHandler) {
         GPX(url: url, completionHandler: completionHandler).parse()
     }
     
@@ -31,8 +31,8 @@ class GPX: NSObject, NSXMLParserDelegate
         var fixes = [Waypoint]()
         
         override var description: String {
-            let waypointDescription = "fixes=[\n" + fixes.map { $0.description }.joinWithSeparator("\n") + "\n]"
-            return [super.description, waypointDescription].joinWithSeparator(" ")
+            let waypointDescription = "fixes=[\n" + fixes.map { $0.description }.joined(separator: "\n") + "\n]"
+            return [super.description, waypointDescription].joined(separator: " ")
         }
     }
     
@@ -51,10 +51,10 @@ class GPX: NSObject, NSXMLParserDelegate
             set { attributes["desc"] = newValue }
             get { return attributes["desc"] }
         }
-        lazy var date: NSDate? = self.attributes["time"]?.asGpxDate
+        lazy var date: Date? = self.attributes["time"]?.asGpxDate
         
         override var description: String {
-            return ["lat=\(latitude)", "lon=\(longitude)", super.description].joinWithSeparator(" ")
+            return ["lat=\(latitude)", "lon=\(longitude)", super.description].joined(separator: " ")
         }
     }
     
@@ -72,7 +72,7 @@ class GPX: NSObject, NSXMLParserDelegate
             var descriptions = [String]()
             if attributes.count > 0 { descriptions.append("attributes=\(attributes)") }
             if links.count > 0 { descriptions.append("links=\(links)") }
-            return descriptions.joinWithSeparator(" ")
+            return descriptions.joined(separator: " ")
         }
     }
     
@@ -83,7 +83,7 @@ class GPX: NSObject, NSXMLParserDelegate
         
         init(href: String) { self.href = href }
         
-        var url: NSURL? { return NSURL(string: href) }
+        var url: URL? { return URL(string: href) }
         var text: String? { return linkattributes["text"] }
         var type: String? { return linkattributes["type"] }
         
@@ -91,7 +91,7 @@ class GPX: NSObject, NSXMLParserDelegate
             var descriptions = [String]()
             descriptions.append("href=\(href)")
             if linkattributes.count > 0 { descriptions.append("linkattributes=\(linkattributes)") }
-            return "[" + descriptions.joinWithSeparator(" ") + "]"
+            return "[" + descriptions.joined(separator: " ") + "]"
         }
     }
 
@@ -102,33 +102,33 @@ class GPX: NSObject, NSXMLParserDelegate
         if waypoints.count > 0 { descriptions.append("waypoints = \(waypoints)") }
         if tracks.count > 0 { descriptions.append("tracks = \(tracks)") }
         if routes.count > 0 { descriptions.append("routes = \(routes)") }
-        return descriptions.joinWithSeparator("\n")
+        return descriptions.joined(separator: "\n")
     }
 
     // MARK: - Private Implementation
 
-    private let url: NSURL
-    private let completionHandler: GPXCompletionHandler
+    fileprivate let url: URL
+    fileprivate let completionHandler: GPXCompletionHandler
     
-    private init(url: NSURL, completionHandler: GPXCompletionHandler) {
+    fileprivate init(url: URL, completionHandler: @escaping GPXCompletionHandler) {
         self.url = url
         self.completionHandler = completionHandler
     }
     
-    private func complete(success success: Bool) {
-        dispatch_async(dispatch_get_main_queue()) {
+    fileprivate func complete(success: Bool) {
+        DispatchQueue.main.async {
             self.completionHandler(success ? self : nil)
         }
     }
     
-    private func fail() { complete(success: false) }
-    private func succeed() { complete(success: true) }
+    fileprivate func fail() { complete(success: false) }
+    fileprivate func succeed() { complete(success: true) }
     
-    private func parse() {
-        let qos = Int(QOS_CLASS_USER_INITIATED.rawValue)
-        dispatch_async(dispatch_get_global_queue(qos, 0)) {
-            if let data = NSData(contentsOfURL: self.url) {
-                let parser = NSXMLParser(data: data)
+    fileprivate func parse() {
+        let qos = Int(DispatchQoS.QoSClass.userInitiated.rawValue)
+        DispatchQueue.global(priority: qos).async {
+            if let data = try? Data(contentsOf: self.url) {
+                let parser = XMLParser(data: data)
                 parser.delegate = self
                 parser.shouldProcessNamespaces = false
                 parser.shouldReportNamespacePrefixes = false
@@ -140,21 +140,21 @@ class GPX: NSObject, NSXMLParserDelegate
         }
     }
 
-    func parserDidEndDocument(parser: NSXMLParser) { succeed() }
-    func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) { fail() }
-    func parser(parser: NSXMLParser, validationErrorOccurred validationError: NSError) { fail() }
+    func parserDidEndDocument(_ parser: XMLParser) { succeed() }
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) { fail() }
+    func parser(_ parser: XMLParser, validationErrorOccurred validationError: Error) { fail() }
     
-    private var input = ""
+    fileprivate var input = ""
 
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
         input += string
     }
     
-    private var waypoint: Waypoint?
-    private var track: Track?
-    private var link: Link?
+    fileprivate var waypoint: Waypoint?
+    fileprivate var track: Track?
+    fileprivate var link: Link?
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         switch elementName {
             case "trkseg":
                 if track == nil { fallthrough }
@@ -174,7 +174,7 @@ class GPX: NSObject, NSXMLParserDelegate
         }
     }
     
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         switch elementName {
             case "wpt":
                 if waypoint != nil { waypoints.append(waypoint!); waypoint = nil }
@@ -208,16 +208,16 @@ class GPX: NSObject, NSXMLParserDelegate
 
 private extension String {
     var trimmed: String {
-        return (self as NSString).stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+        return (self as NSString).trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 }
 
 extension String {
-    var asGpxDate: NSDate? {
+    var asGpxDate: Date? {
         get {
-            let dateFormatter = NSDateFormatter()
+            let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z"
-            return dateFormatter.dateFromString(self)
+            return dateFormatter.date(from: self)
         }
     }
 }
