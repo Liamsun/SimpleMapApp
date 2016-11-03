@@ -23,13 +23,13 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "mapapp_icon_120.png",
+      "filename" : "mapapp_icon120.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "mapapp_icon_180.png",
+      "filename" : "mapapp_icon180.png",
       "scale" : "3x"
     },
     {
