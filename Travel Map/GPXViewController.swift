@@ -78,11 +78,11 @@ class GPXViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
         view?.draggable = annotation is EditableWaypoint
         
-        view!.leftCalloutAccessoryView = nil
-        view!.rightCalloutAccessoryView = nil
+        view?.leftCalloutAccessoryView = nil
+        view?.rightCalloutAccessoryView = nil
         if let waypoint = annotation as? GPX.Waypoint {
             if waypoint.thumbnailURL != nil {
-                view!.leftCalloutAccessoryView = UIButton(frame: Constants.LeftCalloutFrame)
+                view?.leftCalloutAccessoryView = UIButton(frame: Constants.LeftCalloutFrame)
             }
             
             if annotation is EditableWaypoint {
@@ -123,6 +123,14 @@ class GPXViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
             }
         }
     }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let route: MKPolyline = overlay as! MKPolyline
+        let routeRenderer = MKPolylineRenderer(polyline: route)
+        routeRenderer.lineWidth = 5.0
+        routeRenderer.strokeColor = UIColor.blueColor()
+        return routeRenderer
+    }
    
     
     // MARK: - Prepare Segue
@@ -138,7 +146,6 @@ class GPXViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
                     ivc.title = waypoint.name
                 }
             }
-            
         // Configure Waypoint Scence
         } else if segue.identifier == Constants.EditWaypointSegue {
             if let waypoint = (sender as? MKAnnotationView)?.annotation as? EditableWaypoint {
@@ -181,7 +188,6 @@ class GPXViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     let searchBar = UISearchBar()
     var leftBarButtonItem: UIBarButtonItem?
     var rightBarButtionItem: UIBarButtonItem?
-    
     var destLocation: CLLocationCoordinate2D!
     
     func searchhandler( placemarks: [CLPlacemark]?, error: NSError? ) -> Void {
@@ -204,11 +210,44 @@ class GPXViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
     }
     
     func leftBarButtonItemTapped() {
-        
-    }
+        let request = MKDirectionsRequest()
     
-    func rightBarButtonItemTapped() {
+        mapView.showsUserLocation = true
+        let srcLocation = mapView.userLocation.coordinate
         
+        // set startplace
+        let srcPlacemark = MKPlacemark(coordinate: srcLocation, addressDictionary: nil)
+        let srcMapItem = MKMapItem(placemark: srcPlacemark)
+        request.source = srcMapItem
+        
+        // set destination
+        let destPlacemark = MKPlacemark(coordinate: destLocation, addressDictionary: nil)
+        let destMapItem = MKMapItem(placemark: destPlacemark)
+        request.destination = destMapItem
+        
+        let direction = MKDirections(request: request)
+        direction.calculateDirectionsWithCompletionHandler({
+            (response: MKDirectionsResponse?, error: NSError?) -> Void in
+            if let DirResponse = response {
+                if !DirResponse.routes.isEmpty {
+                    let route: MKRoute = DirResponse.routes[0] as MKRoute
+                    self.mapView.addOverlay(route.polyline)
+                    
+                    let center = CLLocationCoordinate2DMake((srcLocation.latitude + self.destLocation.latitude)/2.0, (srcLocation.longitude + self.destLocation.longitude)/2.0)
+                    let span = MKCoordinateSpanMake(abs(self.destLocation.latitude - srcLocation.latitude)*1.2, abs(self.destLocation.longitude - srcLocation.longitude)*1.2 )
+                    let region = MKCoordinateRegionMake(center, span)
+                    self.mapView.setRegion(region, animated: true)
+                }
+            }
+        })
+    }
+
+    func rightBarButtonItemTapped() {
+        let textItem = "map"
+        if let mapItem = mapView {
+            let activityViewController = UIActivityViewController(activityItems: [textItem, mapItem], applicationActivities: nil)
+            presentViewController(activityViewController, animated: true, completion: nil)
+        }
     }
     
     func showNavigationBarButtonItem(showNavigationBarButton: Bool) {
@@ -299,6 +338,7 @@ class GPXViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         
         mapView.userLocation.title = "Current Location"
         mapView.showsUserLocation = true
+        mapView.userTrackingMode = .FollowWithHeading
     }
     
     // MARK: Current position
@@ -348,6 +388,13 @@ class GPXViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
         return true
     }
     
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+        if touch.view is MKAnnotationView {
+            return false
+        }
+        return true
+    }
+    
     // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -383,8 +430,6 @@ class GPXViewController: UIViewController, MKMapViewDelegate, UIPopoverPresentat
  
     override func viewWillAppear(animated: Bool) {
 
-
-        
         // Customize Navigation Bar
         showNavigationBarButtonItem(true)
         searchBar.sizeToFit()
@@ -442,3 +487,15 @@ extension MKAnnotationView {
         return CGRect(origin: popoverSourceRectCenter, size: frame.size)
     }
 }
+
+extension UIImage {
+    convenience init(view: UIView) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(CGImage: image.CGImage!)
+    }
+}
+
+

@@ -94,6 +94,19 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate, UIImage
         }
     }
     
+    func imageTapped(sender: UITapGestureRecognizer) {
+        print("if it is called")
+        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+            let picker = UIImagePickerController()
+            picker.sourceType = .PhotoLibrary
+            picker.mediaTypes = [kUTTypeImage as String]
+            picker.delegate = self
+            picker.allowsEditing = true
+            presentViewController(picker, animated: true, completion: nil)
+        }
+    }
+    
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         var image = info[UIImagePickerControllerEditedImage] as? UIImage
         if image == nil {
@@ -130,6 +143,13 @@ class EditWaypointViewController: UIViewController, UITextFieldDelegate, UIImage
         super.viewDidLoad()
         nameTextField.becomeFirstResponder()
         updateUI()
+        
+        let image = UIImage(named: "defaultPhoto")
+        imageView.image = image
+        
+        let imageTapRecognizer = UITapGestureRecognizer(target: imageView, action: "imageTapped:")
+        imageTapRecognizer.numberOfTapsRequired = 1
+        imageView.addGestureRecognizer(imageTapRecognizer)
         // Do any additional setup after loading the view.
     }
     

@@ -27,6 +27,7 @@
 		D2173A331C783AFC00439042 /* MKGPX.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A2B1C783AFC00439042 /* MKGPX.swift */; };
 		D2173A341C783AFC00439042 /* SimpleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A2C1C783AFC00439042 /* SimpleMapViewController.swift */; };
 		D2173A351C783AFC00439042 /* WaypointImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2173A2D1C783AFC00439042 /* WaypointImageViewController.swift */; };
+		D27E6DC81C81CDDD00274D5C /* MapDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27E6DC71C81CDDD00274D5C /* MapDetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		D2173A2B1C783AFC00439042 /* MKGPX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKGPX.swift; sourceTree = "<group>"; };
 		D2173A2C1C783AFC00439042 /* SimpleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleMapViewController.swift; sourceTree = "<group>"; };
 		D2173A2D1C783AFC00439042 /* WaypointImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaypointImageViewController.swift; sourceTree = "<group>"; };
+		D27E6DC71C81CDDD00274D5C /* MapDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,24 +107,23 @@
 			isa = PBXGroup;
 			children = (
 				D2173A141C783AD500439042 /* AppDelegate.swift */,
-				D2173A151C783AD500439042 /* CustomPresentationAnimationController.swift */,
-				D2173A161C783AD500439042 /* CustomPresentationController.swift */,
-				D2173A171C783AD500439042 /* EditWaypointViewController.swift */,
-				D2173A181C783AD500439042 /* GPX.swift */,
-				D2173A191C783AD500439042 /* GPXViewController.swift */,
-				D2173A1A1C783AD500439042 /* ImageViewController.swift */,
-				D2173A221C783AED00439042 /* Info.plist */,
 				D2173A241C783AF500439042 /* Main.storyboard */,
+				D2173A191C783AD500439042 /* GPXViewController.swift */,
+				D2173A181C783AD500439042 /* GPX.swift */,
+				D2173A2B1C783AFC00439042 /* MKGPX.swift */,
+				D2173A171C783AD500439042 /* EditWaypointViewController.swift */,
+				D2173A2C1C783AFC00439042 /* SimpleMapViewController.swift */,
+				D2173A1A1C783AD500439042 /* ImageViewController.swift */,
+				D2173A291C783AFC00439042 /* MapDetailViewController.swift */,
+				D27E6DC71C81CDDD00274D5C /* MapDetailTableViewCell.swift */,
 				D2173A261C783AFC00439042 /* MapDetailAnimatedTransitioning.swift */,
 				D2173A271C783AFC00439042 /* MapDetailPresentationController.swift */,
 				D2173A281C783AFC00439042 /* MapDetailTransitioningDelegate.swift */,
-				D2173A291C783AFC00439042 /* MapDetailViewController.swift */,
-				D2173A2A1C783AFC00439042 /* MapTypeViewController.swift */,
-				D2173A2B1C783AFC00439042 /* MKGPX.swift */,
-				D2173A2C1C783AFC00439042 /* SimpleMapViewController.swift */,
 				D2173A2D1C783AFC00439042 /* WaypointImageViewController.swift */,
+				D2173A221C783AED00439042 /* Info.plist */,
 				D21739D11C7839DE00439042 /* Assets.xcassets */,
 				D21739D31C7839DE00439042 /* LaunchScreen.storyboard */,
+				D27E6DC91C81D0B400274D5C /* support */,
 			);
 			path = "Travel Map";
 			sourceTree = "<group>";
@@ -134,6 +135,16 @@
 				D21739E11C7839DE00439042 /* Info.plist */,
 			);
 			path = "Travel MapTests";
+			sourceTree = "<group>";
+		};
+		D27E6DC91C81D0B400274D5C /* support */ = {
+			isa = PBXGroup;
+			children = (
+				D2173A151C783AD500439042 /* CustomPresentationAnimationController.swift */,
+				D2173A2A1C783AFC00439042 /* MapTypeViewController.swift */,
+				D2173A161C783AD500439042 /* CustomPresentationController.swift */,
+			);
+			name = support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +262,7 @@
 				D2173A211C783AD500439042 /* ImageViewController.swift in Sources */,
 				D2173A2E1C783AFC00439042 /* MapDetailAnimatedTransitioning.swift in Sources */,
 				D2173A1E1C783AD500439042 /* EditWaypointViewController.swift in Sources */,
+				D27E6DC81C81CDDD00274D5C /* MapDetailTableViewCell.swift in Sources */,
 				D2173A311C783AFC00439042 /* MapDetailViewController.swift in Sources */,
 				D2173A1D1C783AD500439042 /* CustomPresentationController.swift in Sources */,
 				D2173A301C783AFC00439042 /* MapDetailTransitioningDelegate.swift in Sources */,
@@ -439,6 +451,7 @@
 				D21739E61C7839DE00439042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D21739E71C7839DE00439042 /* Build configuration list for PBXNativeTarget "Travel MapTests" */ = {
 			isa = XCConfigurationList;
@@ -447,6 +460,7 @@
 				D21739E91C7839DE00439042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

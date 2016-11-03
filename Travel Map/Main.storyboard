@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Xl-6R-1KW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Xl-6R-1KW">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="BYZ-38-t0r" customClass="GPXViewController" customModule="TravelMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="BYZ-38-t0r" customClass="GPXViewController" customModule="Travel_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AJ9-bv-qdx">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="561"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AJ9-bv-qdx">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <gestureRecognizers/>
                                 <variation key="heightClass=compact-widthClass=regular" ambiguous="YES" misplaced="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="800" height="561"/>
@@ -31,12 +31,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AJ9-bv-qdx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9yl-xc-110"/>
                             <constraint firstAttribute="trailing" secondItem="AJ9-bv-qdx" secondAttribute="trailing" id="BTm-rg-tH7"/>
                             <constraint firstItem="AJ9-bv-qdx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="FHj-RL-wAO"/>
+                            <constraint firstAttribute="trailing" secondItem="AJ9-bv-qdx" secondAttribute="trailing" id="FZ2-uB-E8G"/>
                             <constraint firstItem="AJ9-bv-qdx" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Ffp-ov-Eys"/>
+                            <constraint firstItem="AJ9-bv-qdx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Fho-bk-oXg"/>
                             <constraint firstItem="AJ9-bv-qdx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Y50-eN-4eG"/>
                             <constraint firstItem="AJ9-bv-qdx" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="cbq-gd-abp"/>
                             <constraint firstItem="AJ9-bv-qdx" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="iR0-Ec-VIT"/>
+                            <constraint firstItem="AJ9-bv-qdx" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="isi-6e-8ey"/>
+                            <constraint firstItem="AJ9-bv-qdx" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="mnC-br-p9G"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -46,6 +51,7 @@
                                 <exclude reference="Y50-eN-4eG"/>
                                 <exclude reference="cbq-gd-abp"/>
                                 <exclude reference="iR0-Ec-VIT"/>
+                                <exclude reference="isi-6e-8ey"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -81,7 +87,7 @@
         <!--Edit Waypoint-->
         <scene sceneID="nYy-MU-kK8">
             <objects>
-                <viewController id="Ngc-fQ-1tX" customClass="EditWaypointViewController" customModule="Trax" sceneMemberID="viewController">
+                <viewController id="Ngc-fQ-1tX" customClass="EditWaypointViewController" customModule="Travel_Map" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oxl-ge-QWQ"/>
                         <viewControllerLayoutGuide type="bottom" id="vxI-tC-PDh"/>
@@ -95,8 +101,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLn-4D-MXO">
-                                <rect key="frame" x="77" y="76" width="457" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DLn-4D-MXO">
+                                <rect key="frame" x="77" y="76" width="465" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -112,8 +118,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nkc-kl-jCG">
-                                <rect key="frame" x="542" y="74" width="38" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nkc-kl-jCG">
+                                <rect key="frame" x="550" y="67" width="30" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="📷"/>
                                 <connections>
@@ -166,7 +172,7 @@
         <!--Waypoint Image View Controller-->
         <scene sceneID="JNt-n1-fxm">
             <objects>
-                <viewController id="rnK-Mx-q2W" customClass="WaypointImageViewController" customModule="TravelMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rnK-Mx-q2W" customClass="WaypointImageViewController" customModule="Travel_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tuL-RW-De1"/>
                         <viewControllerLayoutGuide type="bottom" id="61D-Jn-Eli"/>
@@ -175,7 +181,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P9k-6Y-TGh">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P9k-6Y-TGh">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
@@ -220,12 +226,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="P9k-6Y-TGh" firstAttribute="leading" secondItem="i2x-DA-fpX" secondAttribute="leading" id="5g5-JU-kOE"/>
+                            <constraint firstItem="P9k-6Y-TGh" firstAttribute="bottom" secondItem="61D-Jn-Eli" secondAttribute="top" id="91M-0a-DKY"/>
                             <constraint firstAttribute="trailing" secondItem="sPr-Oq-TPd" secondAttribute="trailing" id="D0h-qg-4eU"/>
                             <constraint firstItem="P9k-6Y-TGh" firstAttribute="bottom" secondItem="61D-Jn-Eli" secondAttribute="top" id="GPS-gZ-94k"/>
+                            <constraint firstItem="P9k-6Y-TGh" firstAttribute="top" secondItem="i2x-DA-fpX" secondAttribute="top" id="Ibp-uj-exi"/>
                             <constraint firstItem="P9k-6Y-TGh" firstAttribute="leading" secondItem="i2x-DA-fpX" secondAttribute="leading" id="MZG-Gc-2Hj"/>
                             <constraint firstItem="sPr-Oq-TPd" firstAttribute="bottom" secondItem="61D-Jn-Eli" secondAttribute="top" id="Mrl-S7-Kow"/>
                             <constraint firstItem="P9k-6Y-TGh" firstAttribute="top" secondItem="tuL-RW-De1" secondAttribute="bottom" id="Swb-q9-x1U"/>
                             <constraint firstAttribute="trailing" secondItem="P9k-6Y-TGh" secondAttribute="trailing" id="rse-pd-Vcp"/>
+                            <constraint firstAttribute="trailing" secondItem="P9k-6Y-TGh" secondAttribute="trailing" id="wet-LU-eYa"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -287,7 +297,7 @@
         <!--Simple Map View Controller-->
         <scene sceneID="nRo-Si-LWe">
             <objects>
-                <viewController id="c8E-tX-AAd" customClass="SimpleMapViewController" customModule="TravelMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="c8E-tX-AAd" customClass="SimpleMapViewController" customModule="Travel_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VHM-5e-HVq"/>
                         <viewControllerLayoutGuide type="bottom" id="GgQ-z5-5OD"/>
@@ -337,7 +347,7 @@
         <!--Map Detail View Controller-->
         <scene sceneID="XxU-zq-FuJ">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="yks-4p-hhS" customClass="MapDetailViewController" customModule="TravelMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="yks-4p-hhS" customClass="MapDetailViewController" customModule="Travel_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ktz-sM-VBu"/>
                         <viewControllerLayoutGuide type="bottom" id="3As-GO-UvY"/>
@@ -346,52 +356,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="EpV-ZE-ezF">
-                                <rect key="frame" x="-60" y="-14" width="121" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8mL-an-vJD">
+                                <rect key="frame" x="24" y="28" width="552" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="350" id="MWT-6L-2SU"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Map"/>
+                                    <segment title="Transit"/>
                                     <segment title="Satellite"/>
-                                    <segment title="Hybrid"/>
                                 </segments>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="MWT-6L-2SU"/>
+                                    </mask>
+                                </variation>
                                 <connections>
-                                    <action selector="configureMap:" destination="yks-4p-hhS" eventType="valueChanged" id="paw-p7-pCz"/>
+                                    <action selector="configureMap:" destination="yks-4p-hhS" eventType="valueChanged" id="h9X-YZ-RaN"/>
                                 </connections>
                             </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p4b-r2-rUW">
+                                <rect key="frame" x="0.0" y="64" width="580" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MapDetailTableViewCell" textLabel="5dK-v3-h3c" style="IBUITableViewCellStyleDefault" id="OLZ-TB-ZvB" customClass="MapDetailTableViewCell" customModule="Travel_Map" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="580" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OLZ-TB-ZvB" id="VZs-aG-l7l">
+                                            <rect key="frame" x="0.0" y="0.0" width="580" height="47"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5dK-v3-h3c">
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="47"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mapDetails" destination="5dK-v3-h3c" id="Dj7-qE-K35"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="EpV-ZE-ezF" firstAttribute="leading" secondItem="pcS-gX-fd1" secondAttribute="leading" id="VLI-sw-R6n"/>
-                            <constraint firstAttribute="trailing" secondItem="EpV-ZE-ezF" secondAttribute="trailing" id="sUe-am-dXI"/>
-                            <constraint firstItem="EpV-ZE-ezF" firstAttribute="centerY" secondItem="pcS-gX-fd1" secondAttribute="centerY" id="usO-tf-4GN"/>
+                            <constraint firstItem="p4b-r2-rUW" firstAttribute="top" secondItem="8mL-an-vJD" secondAttribute="bottom" constant="8" symbolic="YES" id="Eie-f7-GMS"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="p4b-r2-rUW" secondAttribute="bottom" id="GiM-0n-Tor"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="p4b-r2-rUW" secondAttribute="trailing" id="JWP-xt-Z9Y"/>
+                            <constraint firstItem="p4b-r2-rUW" firstAttribute="centerX" secondItem="8mL-an-vJD" secondAttribute="centerX" id="L4U-R5-7ag"/>
+                            <constraint firstItem="p4b-r2-rUW" firstAttribute="leading" secondItem="pcS-gX-fd1" secondAttribute="leading" id="TKF-H9-uNB"/>
+                            <constraint firstItem="8mL-an-vJD" firstAttribute="leading" secondItem="pcS-gX-fd1" secondAttribute="leadingMargin" constant="4" id="ZU4-wm-L4Y"/>
+                            <constraint firstItem="8mL-an-vJD" firstAttribute="centerX" secondItem="pcS-gX-fd1" secondAttribute="centerX" id="efq-Ft-0q5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8mL-an-vJD" secondAttribute="trailing" constant="4" id="iaa-hW-04N"/>
+                            <constraint firstItem="8mL-an-vJD" firstAttribute="top" secondItem="ktz-sM-VBu" secondAttribute="bottom" constant="8" symbolic="YES" id="ica-ts-ujg"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="EpV-ZE-ezF"/>
-                            </mask>
                             <mask key="constraints">
-                                <exclude reference="VLI-sw-R6n"/>
-                                <exclude reference="sUe-am-dXI"/>
-                                <exclude reference="usO-tf-4GN"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular">
-                            <mask key="subviews">
-                                <include reference="EpV-ZE-ezF"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="VLI-sw-R6n"/>
-                                <include reference="sUe-am-dXI"/>
-                                <include reference="usO-tf-4GN"/>
+                                <exclude reference="L4U-R5-7ag"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="mapTypeBeforeChanged" destination="EpV-ZE-ezF" id="k37-UG-DOb"/>
+                        <outlet property="mapType" destination="8mL-an-vJD" id="laR-Cr-GWr"/>
+                        <outlet property="tableView" destination="p4b-r2-rUW" id="cw7-kI-QF8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxe-3N-dOF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2418" y="1321.5"/>
+            <point key="canvasLocation" x="2744" y="1279"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

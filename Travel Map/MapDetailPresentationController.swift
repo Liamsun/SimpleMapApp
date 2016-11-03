@@ -11,8 +11,10 @@ import UIKit
 class MapDetailPresentationController: UIPresentationController, UIAdaptivePresentationControllerDelegate {
     
     var chromeView: UIView = UIView()
+    let presentedViewFrame: CGRect
     
     override init(presentedViewController: UIViewController, presentingViewController: UIViewController) {
+        self.presentedViewFrame = presentedViewController.view.frame
         super.init(presentedViewController:presentedViewController, presentingViewController:presentingViewController)
         chromeView.backgroundColor = UIColor(white:0.0, alpha:0.4)
         chromeView.alpha = 0.0
@@ -37,7 +39,8 @@ class MapDetailPresentationController: UIPresentationController, UIAdaptivePrese
     }
     
     override func sizeForChildContentContainer(container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        return CGSizeMake(parentSize.width, CGFloat((floorf(Float(parentSize.height / 3.0)))))
+        //return self.presentedViewFrame.size
+        return CGSizeMake(parentSize.width, CGFloat((floorf(Float(parentSize.height / 3.54)))))
     }
     
     override func presentationTransitionWillBegin() {

@@ -9,7 +9,9 @@
 import UIKit
 
 class MapDetailTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var mapDetails: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
